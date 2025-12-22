@@ -1,1 +1,13 @@
+scenarios:
+  - name: GFC_2008
+    start: 2007-01-01
+    end: 2009-12-31
+
+  - name: COVID_2020
+    start: 2019-01-01
+    end: 2021-12-31
+
+  - name: RATES_2022
+    start: 2021-01-01
+    end: 2023-12-31
 
