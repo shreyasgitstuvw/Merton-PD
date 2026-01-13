@@ -1,0 +1,15 @@
+engine:
+  name: FundStressEngine
+  version: 1.0
+  frequency: daily
+
+pipeline:
+  stages:
+    - fund_stress
+    - volatility
+    - pd_acceleration
+
+output:
+  save_intermediate: true
+  path: data/processed
+
