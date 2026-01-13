@@ -1,25 +1,46 @@
+# ========================
 # Python
+# ========================
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
 
+# ========================
 # Virtual environments
+# ========================
 .venv/
 venv/
+env/
 
-# IDE
+# ========================
+# IDEs
+# ========================
 .idea/
 .vscode/
 
+# ========================
+# OS
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# Secrets
+# ========================
+.env
+*.env
+
+# ========================
 # Data artifacts
+# ========================
 Data/raw/
 Data/processed/
 Data/external/
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs / outputs
+# ========================
+# Logs / reports
+# ========================
 *.log
 data_quality_report.csv
+
 
