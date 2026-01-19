@@ -1,46 +1,69 @@
-# ========================
 # Python
-# ========================
 __pycache__/
 *.py[cod]
-*.pyo
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# ========================
-# Virtual environments
-# ========================
+# Virtual Environment
 .venv/
 venv/
+ENV/
 env/
 
-# ========================
-# IDEs
-# ========================
-.idea/
-.vscode/
+# Airflow
+airflow/airflow.db
+airflow/airflow.cfg
+airflow/logs/
+airflow/webserver_config.py
+airflow/*.pid
 
-# ========================
+# Database
+*.db
+*.sqlite
+
+# Logs
+logs/
+*.log
+
+# Results and temporary files
+results/
+*.csv
+*.xlsx
+!requirements.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
 # OS
-# ========================
 .DS_Store
 Thumbs.db
 
-# ========================
-# Secrets
-# ========================
+# Environment variables
 .env
-*.env
+.env.local
 
-# ========================
-# Data artifacts
-# ========================
-Data/raw/
-Data/processed/
-Data/external/
-
-# ========================
-# Logs / reports
-# ========================
-*.log
-data_quality_report.csv
+# Backup files
+*.backup
+*.bak
 
 
