@@ -1,0 +1,68 @@
+# config/merton.yaml
+# Configuration for Merton model solver and parameters
+
+solver:
+  # Solver convergence parameters
+  max_iterations: 2000
+  tolerance: 1.0e-12
+
+  # Asset volatility bounds
+  min_sigma: 0.0001  # 0.01% minimum
+  max_sigma: 3.0     # 300% maximum (allows extreme cases)
+
+  # Initial guess strategy
+  # Options: 'scaled', 'half', 'fixed'
+  # - 'scaled': σ_V = σ_E × (E/V) - Most robust, recommended
+  # - 'half': σ_V = σ_E × 0.5 - Conservative
+  # - 'fixed': σ_V = 0.2 - Simple default
+  initial_guess_method: 'scaled'
+
+model:
+  # Default time to maturity (years)
+  time_to_maturity: 1.0
+
+  # Use real-world vs risk-neutral probability
+  use_real_world: false
+
+  # Default asset drift if not estimated
+  default_mu: 0.02  # 2% annual drift
+
+volatility:
+  # Equity volatility calculation
+  method: 'rolling'  # Options: 'rolling', 'ewma', 'both'
+  window: 252        # Trading days (1 year)
+  ewma_span: 60      # For EWMA method
+
+  # Annualization
+  annualization_factor: 252.0
+
+validation:
+  # Convergence rate threshold
+  min_convergence_rate: 0.95  # 95% of rows should converge
+
+  # PD range warnings
+  high_pd_threshold: 0.10     # 10% - warn if PD exceeds this
+  very_high_pd_threshold: 0.30  # 30% - critical warning
+
+  # Leverage warnings
+  high_leverage_threshold: 0.6  # D/V > 60%
+
+  # Volatility sanity checks
+  max_reasonable_equity_vol: 1.0   # 100%
+  max_reasonable_asset_vol: 0.8    # 80%
+
+output:
+  # Database storage
+  store_to_db: true
+  table_name: 'merton_outputs'
+
+  # Include diagnostics
+  include_diagnostics: true
+
+  # Save intermediate results
+  save_intermediate: false
+
+# Stress testing scenarios (references scenarios.yaml)
+stress_testing:
+  enabled: false
+  scenario_file: 'scenarios.yaml'

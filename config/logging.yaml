@@ -1,1 +1,26 @@
+# config/logging.yaml
+# Logging configuration for Merton PD engine
 
+level: INFO
+format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+datefmt: '%Y-%m-%d %H:%M:%S'
+
+handlers:
+  console:
+    level: INFO
+    enabled: true
+
+  file:
+    level: DEBUG
+    enabled: true
+    path: logs/merton.log
+    max_bytes: 10485760  # 10MB
+    backup_count: 5
+
+loggers:
+  merton:
+    level: INFO
+  merton.solver:
+    level: DEBUG
+  merton.pipeline:
+    level: INFO
